@@ -20,6 +20,7 @@ const filter_reducer = (state, action) => {
       filters: {
         ...state.filters,
         max_price: maxPrice,
+        price: maxPrice,
       },
     };
   }
@@ -79,6 +80,36 @@ const filter_reducer = (state, action) => {
         return product.name.toLowerCase().startsWith(text);
       });
     }
+
+    if (category !== 'all') {
+      tempProducts = tempProducts.filter(
+        (product) => product.category === category
+      );
+    }
+
+    if (company !== 'all') {
+      tempProducts = tempProducts.filter(
+        (product) => product.company === company
+      );
+    }
+
+    if (company !== 'all') {
+      tempProducts = tempProducts.filter(
+        (product) => product.company === company
+      );
+    }
+
+    if (color !== 'all') {
+      tempProducts = tempProducts.filter((product) => {
+        return product.colors.find((c) => c === color);
+      });
+    }
+
+    if (shipping) {
+      tempProducts = tempProducts.filter((product) => product.shipping);
+    }
+
+    tempProducts = tempProducts.filter((product) => product.price <= price);
 
     return { ...state, filtered_products: tempProducts };
   }
