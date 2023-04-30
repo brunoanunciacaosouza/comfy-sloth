@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import { loadStripe } from '@stripe/stripe-js'
-import {
-  CardElement,
-  useStripe,
-  Elements,
-  useElements,
-} from '@stripe/react-stripe-js'
-import axios from 'axios'
-import { useCartContext } from '../context/cart_context'
-import { useUserContext } from '../context/user_context'
-import { formatPrice } from '../utils/helpers'
-import { useHistory } from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+
+import { useCartContext } from '../context/cart_context';
+import { useUserContext } from '../context/user_context';
+import { formatPrice } from '../utils/helpers';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CheckoutForm = () => {
-  return <h4>hello from Stripe Checkout </h4>
-}
+  const { total_amount } = useCartContext();
+  const { myUser } = useUserContext();
+  return (
+    <div>
+      <article>
+        <h4>Hello, {myUser && myUser.name}</h4>
+        <p>Your total is {formatPrice(total_amount)}</p>
+        <p>Test Card Number: 4242 4242 4242 4242</p>
+        <Link to='/' className='btn'>
+          back to home
+        </Link>
+      </article>
+    </div>
+  );
+};
 
 const StripeCheckout = () => {
   return (
     <Wrapper>
       <CheckoutForm />
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
   form {
@@ -163,6 +169,6 @@ const Wrapper = styled.section`
       width: 80vw;
     }
   }
-`
+`;
 
-export default StripeCheckout
+export default StripeCheckout;
