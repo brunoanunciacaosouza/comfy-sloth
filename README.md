@@ -6,9 +6,15 @@
 
 ## 📃About The Project
 
+- 🇺🇸 English
+
 An E-commerce website built using React with Stripe for payment gateway.
 This web app includes multiple pages like Products Page with option to filter your product search, Cart Page to review your purchases and Checkout Page to complete the purchase with Stripe Payment.
 Auth0 is used for User Authentication before Checking out.
+
+- 🇧🇷 Português
+
+Um site de comércio eletrônico construído usando React with Stripe para gateway de pagamento. Este aplicativo da web inclui várias páginas, como página de produtos com opção para filtrar sua pesquisa de produtos, página de carrinho para revisar suas compras e página de check-out para concluir a compra com o Stripe Payment. Auth0 é usado para autenticação do usuário antes do check-out.
 
 ![Desktop preview](./images/home.png)
 
